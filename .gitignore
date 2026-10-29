@@ -1,8 +1,8 @@
 # Environment & secrets
 .env
 .env.*
-*.local.php
-backend/config/*.local.php
+#*.local.php
+#backend/config/*.local.php
 backend/config/*.local.php.bak
 *.bak
 
