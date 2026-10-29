@@ -1,0 +1,24 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "0.0.0.0:8000:8000/tcp"
+    depends_on:
+      - mysql
+    command: php /var/www/html/start.php --host=0.0.0.0
+    volumes:
+      - .:/var/www/html
+
+  mysql:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_LOCAL_123
+      MYSQL_DATABASE: v7shield
+      MYSQL_USER: tpss
+      MYSQL_PASSWORD: user_LOCAL_123
+    command:
+      - --character-set-server=utf8mb4
